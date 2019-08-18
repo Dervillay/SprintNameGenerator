@@ -1,10 +1,122 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <title>Search Fictional Food and Drink</title>
-  </head>
-  <body>
-    <h1> Food and Drink </h1>
-    <p>Making sprints easier to name since '19.</p>
-  </body>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<head>
+  <meta charset="utf-8">
+  <title>SprintNameGen</title>
+  <style>
+    body {
+      background-color: #e9ecef;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="jumbotron vertical-centre horizontal-centre">
+    <div class="container">
+
+      <div class="text-center">
+        <h1>SprintNameGen</h1>
+        <p>Search fictional food and drink by letter.</p>
+
+        <form action="./" method="GET">
+
+          <div class="dropright">
+            <button class="btn btn-primary dropdown-toggle" type="button" name="letter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select a letter
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="height: auto; max-height: 200px; overflow-x: hidden;">
+              <a class="dropdown-item" href="/?letter=A">A</a>
+              <a class="dropdown-item" href="/?letter=B">B</a>
+              <a class="dropdown-item" href="/?letter=C">C</a>
+              <a class="dropdown-item" href="/?letter=D">D</a>
+              <a class="dropdown-item" href="/?letter=E">E</a>
+              <a class="dropdown-item" href="/?letter=F">F</a>
+              <a class="dropdown-item" href="/?letter=G">G</a>
+              <a class="dropdown-item" href="/?letter=H">H</a>
+              <a class="dropdown-item" href="/?letter=I">I</a>
+              <a class="dropdown-item" href="/?letter=J">J</a>
+              <a class="dropdown-item" href="/?letter=K">K</a>
+              <a class="dropdown-item" href="/?letter=L">L</a>
+              <a class="dropdown-item" href="/?letter=M">M</a>
+              <a class="dropdown-item" href="/?letter=N">N</a>
+              <a class="dropdown-item" href="/?letter=O">O</a>
+              <a class="dropdown-item" href="/?letter=P">P</a>
+              <a class="dropdown-item" href="/?letter=Q">Q</a>
+              <a class="dropdown-item" href="/?letter=R">R</a>
+              <a class="dropdown-item" href="/?letter=S">S</a>
+              <a class="dropdown-item" href="/?letter=T">T</a>
+              <a class="dropdown-item" href="/?letter=U">U</a>
+              <a class="dropdown-item" href="/?letter=V">V</a>
+              <a class="dropdown-item" href="/?letter=W">W</a>
+              <a class="dropdown-item" href="/?letter=X">X</a>
+              <a class="dropdown-item" href="/?letter=Y">Y</a>
+              <a class="dropdown-item" href="/?letter=Z">Z</a>
+            </div>
+          </div>
+      </div>
+      </form>
+
+      {% if film_results != {} or book_results != {} or game_results != {} %}
+      <div>
+        <table>
+          <tr>
+            <th>
+              <h3>Films:</h3>
+            </th>
+            <th>
+              <h3>Books:</h3>
+            </th>
+            <th>
+              <h3>Games:</h3>
+            </th>
+          </tr>
+          <tr>
+            <td valign="top">
+              <ul>
+                {% if any_film_results == True %}
+                {% for value in film_results %}
+                <li><b>{{ value }}</b> from {{ film_results[value] }}</li>
+                {% endfor %}
+                {% else %}
+                <li>No results for films were found</li>
+                {% endif %}
+              </ul>
+            </td>
+            <td valign="top">
+              <ul>
+                {% if any_book_results == True %}
+                {% for value in book_results %}
+                <li><b>{{ value }}</b> from {{ book_results[value] }}</li>
+                {% endfor %}
+                {% else %}
+                <li>No results for books were found</li>
+                {% endif %}
+              </ul>
+            </td>
+            <td valign="top">
+              <ul>
+                {% if any_game_results == True %}
+                {% for value in game_results %}
+                <li><b>{{ value }}</b> from {{ game_results[value] }}</li>
+                {% endfor %}
+                {% else %}
+                <li>No results for games were found</li>
+                {% endif %}
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</body>
+
 </html>

@@ -18,13 +18,13 @@ def find_books():
 
             while '<b><i>' not in str(currentFoodOrDrink):
                 if '<a href' in str(currentFoodOrDrink):
-                    foodsAndDrinks.append(currentFoodOrDrink.text.strip().encode('utf-8'))
+                    foodsAndDrinks.append(currentFoodOrDrink.text.strip())
                 if currentFoodOrDrink != None:
                     currentFoodOrDrink = currentFoodOrDrink.next_sibling
                 else:
                     break
             for f in foodsAndDrinks:
-                responses[f] = line.text.strip().encode('utf-8')
+                responses[f] = line.text.strip()
 
     return responses
 
@@ -44,13 +44,13 @@ def find_films():
 
             while '<b>' not in str(currentFoodOrDrink):
                 if '<a href' in str(currentFoodOrDrink):
-                    foodsAndDrinks.append(currentFoodOrDrink.text.strip().encode('utf-8'))
+                    foodsAndDrinks.append(currentFoodOrDrink.text.strip())
                 if currentFoodOrDrink != None:
                     currentFoodOrDrink = currentFoodOrDrink.next_sibling
                 else:
                     break
             for f in foodsAndDrinks:
-                responses[f] = line.text.strip().encode('utf-8')
+                responses[f] = line.text.strip()
 
     return responses
 
@@ -74,12 +74,12 @@ def find_games():
 
             while '<b>' not in str(currentFoodOrDrink):
                 if '<a href' in str(currentFoodOrDrink):
-                    foodsAndDrinks.append(currentFoodOrDrink.text.strip().encode('utf-8'))
+                    foodsAndDrinks.append(currentFoodOrDrink.text.strip())
                 if currentFoodOrDrink != None:
                     currentFoodOrDrink = currentFoodOrDrink.next_sibling
                 else:
                     break
             for f in foodsAndDrinks:
-                responses[f] = line.text.strip().encode('utf-8')
+                responses[f] = line.text.strip()
 
     return responses
