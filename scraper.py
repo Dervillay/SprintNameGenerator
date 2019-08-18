@@ -23,8 +23,8 @@ def find_books():
                     currentFoodOrDrink = currentFoodOrDrink.next_sibling
                 else:
                     break
-
-            responses[line.text.strip().encode('utf-8')] = foodsAndDrinks
+            for f in foodsAndDrinks:
+                responses[f] = line.text.strip().encode('utf-8')
 
     return responses
 
@@ -39,18 +39,18 @@ def find_films():
 
     for line in soup.find_all('b'):
         if '<b>' in str(line) and '*' not in str(line) and 'Click' not in str(line) and len(str(line)) > 8:
-            films = []
-            currentFilm = line.find_next_sibling('a')
+            foodsAndDrinks = []
+            currentFoodOrDrink = line.find_next_sibling('a')
 
-            while '<b>' not in str(currentFilm):
-                if '<a href' in str(currentFilm):
-                    films.append(currentFilm.text.strip().encode('utf-8'))
-                if currentFilm != None:
-                    currentFilm = currentFilm.next_sibling
+            while '<b>' not in str(currentFoodOrDrink):
+                if '<a href' in str(currentFoodOrDrink):
+                    foodsAndDrinks.append(currentFoodOrDrink.text.strip().encode('utf-8'))
+                if currentFoodOrDrink != None:
+                    currentFoodOrDrink = currentFoodOrDrink.next_sibling
                 else:
                     break
-
-            responses[line.text.strip().encode('utf-8')] = films
+            for f in foodsAndDrinks:
+                responses[f] = line.text.strip().encode('utf-8')
 
     return responses
 
@@ -79,9 +79,7 @@ def find_games():
                     currentFoodOrDrink = currentFoodOrDrink.next_sibling
                 else:
                     break
-
-            responses[line.text.strip().encode('utf-8')] = foodsAndDrinks
-
-    del responses['A B C D E F G H I J K L M N O P Q R S T U V W X Y Z']
+            for f in foodsAndDrinks:
+                responses[f] = line.text.strip().encode('utf-8')
 
     return responses
