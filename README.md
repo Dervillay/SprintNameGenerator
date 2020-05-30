@@ -1,5 +1,6 @@
 # SprintNameGenerator
 A reverse search for the fictional food and drink from [fiction-food.com](http://www.fiction-food.com)
+![](sprintnamegen-demo.gif)
 
 ## Installation
 - Clone or download this repository to your location of choice
